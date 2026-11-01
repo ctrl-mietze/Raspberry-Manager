@@ -1,0 +1,10 @@
+{
+  "name": "raspberry-manager-connect-adapter-tests",
+  "private": true,
+  "scripts": {
+    "test": "node test-connect-translation.cjs && node test-connect-clipboard.cjs"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.12"
+  }
+}

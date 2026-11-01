@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security policy
+    url: https://github.com/ctrl-mietze/Raspberry-Manager/blob/main/SECURITY.md
+    about: Avoid public disclosure of credentials, tokens or security-sensitive reports.
+  - name: Download latest release
+    url: https://github.com/ctrl-mietze/Raspberry-Manager/releases/latest
+    about: Download installers and verify checksums here.

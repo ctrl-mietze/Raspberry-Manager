@@ -1,0 +1,1 @@
+<resources><style name="Theme.Raspberry.Starting" parent="Theme.PiImager"><item name="android:windowBackground">#101013</item></style></resources>

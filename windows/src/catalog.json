@@ -1,0 +1,342 @@
+[
+  {
+    "id": "os.android",
+    "title": "Android",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.custom",
+    "title": "Custom OS image",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.dietpi",
+    "title": "DietPi",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.homeassistant",
+    "title": "Home Assistant OS",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.kali",
+    "title": "Kali Linux",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.libreelec",
+    "title": "LibreELEC",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.pi64",
+    "title": "Raspberry Pi OS",
+    "category": "Operating systems"
+  },
+  {
+    "id": "os.ubuntu",
+    "title": "Ubuntu",
+    "category": "Operating systems"
+  },
+  {
+    "id": "boot.a",
+    "title": "Boot A",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.b",
+    "title": "Boot B",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.patch",
+    "title": "Boot acceptable patch file",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.file",
+    "title": "Custom boot file",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.firmware",
+    "title": "Firmware",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.initramfs",
+    "title": "Initramfs",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.kernel",
+    "title": "Kernel",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.selector",
+    "title": "MultiBoot selector",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.cmdline",
+    "title": "cmdline token",
+    "category": "Boot"
+  },
+  {
+    "id": "boot.config",
+    "title": "config.txt fragment",
+    "category": "Boot"
+  },
+  {
+    "id": "storage.fat32",
+    "title": "FAT32 boot volume",
+    "category": "Storage"
+  },
+  {
+    "id": "storage.recovery",
+    "title": "Recovery image (optional)",
+    "category": "Storage"
+  },
+  {
+    "id": "storage.free",
+    "title": "Reserved free space",
+    "category": "Storage"
+  },
+  {
+    "id": "storage.volume",
+    "title": "Service data volume",
+    "category": "Storage"
+  },
+  {
+    "id": "storage.swap",
+    "title": "Swap reservation",
+    "category": "Storage"
+  },
+  {
+    "id": "storage.ext4",
+    "title": "ext4 root/data volume",
+    "category": "Storage"
+  },
+  {
+    "id": "driver.audio",
+    "title": "Audio driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.bluetooth",
+    "title": "Bluetooth driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.overlay",
+    "title": "DTB overlay",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.display",
+    "title": "Display driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.gpio",
+    "title": "GPIO / HAT",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.gpu",
+    "title": "GPU driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.sensor",
+    "title": "Sensor driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.storage",
+    "title": "Storage driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.usb",
+    "title": "USB driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "driver.wifi",
+    "title": "Wi-Fi driver",
+    "category": "Drivers"
+  },
+  {
+    "id": "net.access",
+    "title": "Access rule",
+    "category": "Network"
+  },
+  {
+    "id": "net.dns",
+    "title": "DNS",
+    "category": "Network"
+  },
+  {
+    "id": "net.ethernet",
+    "title": "Ethernet",
+    "category": "Network"
+  },
+  {
+    "id": "net.firewall",
+    "title": "Firewall rule",
+    "category": "Network"
+  },
+  {
+    "id": "net.proxy",
+    "title": "Proxy",
+    "category": "Network"
+  },
+  {
+    "id": "net.vpn",
+    "title": "VPN",
+    "category": "Network"
+  },
+  {
+    "id": "net.wifi",
+    "title": "Wi-Fi",
+    "category": "Network"
+  },
+  {
+    "id": "runtime.docker",
+    "title": "Docker host",
+    "category": "Runtimes"
+  },
+  {
+    "id": "runtime.java",
+    "title": "Java runtime",
+    "category": "Runtimes"
+  },
+  {
+    "id": "runtime.node",
+    "title": "Node.js runtime",
+    "category": "Runtimes"
+  },
+  {
+    "id": "runtime.python",
+    "title": "Python runtime",
+    "category": "Runtimes"
+  },
+  {
+    "id": "mc.bedrock",
+    "title": "Bedrock",
+    "category": "Minecraft"
+  },
+  {
+    "id": "mc.bukkit",
+    "title": "Bukkit",
+    "category": "Minecraft"
+  },
+  {
+    "id": "mc.java",
+    "title": "Java",
+    "category": "Minecraft"
+  },
+  {
+    "id": "minecraft",
+    "title": "Minecraft Server",
+    "category": "Minecraft"
+  },
+  {
+    "id": "mc.mod.fabric",
+    "title": "Mod Client · Fabric",
+    "category": "Minecraft"
+  },
+  {
+    "id": "mc.mod.forge",
+    "title": "Mod Client · Forge",
+    "category": "Minecraft"
+  },
+  {
+    "id": "mc.nukkit",
+    "title": "Nukkit",
+    "category": "Minecraft"
+  },
+  {
+    "id": "service.mount",
+    "title": "Automatic mount",
+    "category": "Services"
+  },
+  {
+    "id": "service.backup",
+    "title": "Backup service",
+    "category": "Services"
+  },
+  {
+    "id": "server.game",
+    "title": "Custom game server",
+    "category": "Services"
+  },
+  {
+    "id": "service.custom",
+    "title": "Custom service",
+    "category": "Services"
+  },
+  {
+    "id": "server.database",
+    "title": "Database",
+    "category": "Services"
+  },
+  {
+    "id": "server.files",
+    "title": "File server",
+    "category": "Services"
+  },
+  {
+    "id": "service.init",
+    "title": "Init service",
+    "category": "Services"
+  },
+  {
+    "id": "server.media",
+    "title": "Media server",
+    "category": "Services"
+  },
+  {
+    "id": "service.monitor",
+    "title": "Monitoring",
+    "category": "Services"
+  },
+  {
+    "id": "service.remote",
+    "title": "Remote access",
+    "category": "Services"
+  },
+  {
+    "id": "service.ssh",
+    "title": "SSH",
+    "category": "Services"
+  },
+  {
+    "id": "service.update",
+    "title": "Update service",
+    "category": "Services"
+  },
+  {
+    "id": "service.vnc",
+    "title": "VNC / desktop access",
+    "category": "Services"
+  },
+  {
+    "id": "service.watchdog",
+    "title": "Watchdog",
+    "category": "Services"
+  },
+  {
+    "id": "server.web",
+    "title": "Web server",
+    "category": "Services"
+  },
+  {
+    "id": "note",
+    "title": "Workspace note",
+    "category": "Notes"
+  }
+]

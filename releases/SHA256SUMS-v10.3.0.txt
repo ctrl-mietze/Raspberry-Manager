@@ -1,0 +1,2 @@
+2536fa69e487ec653a645396b7641295b68779e875585facdcf1723f198b20a2  RaspberryManager-Android-v10.3.0.apk
+ee0a2465a14e96d761e98a0152cba8c93caf26130cc487fe9ada9cc79bc850e3  RaspberryManager-Windows-v10.3.0-Setup.exe

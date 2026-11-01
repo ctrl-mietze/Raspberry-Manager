@@ -1,0 +1,32 @@
+# Build and development output
+**/node_modules/
+**/dist/
+**/release/
+**/build/
+**/.gradle/
+**/.kotlin/
+**/.idea/
+**/.DS_Store
+**/*.log
+**/*.tsbuildinfo
+**/.env
+**/.env.*
+**/local.properties
+**/*.jks
+**/*.keystore
+
+# Release binaries are uploaded to GitHub Releases, not git history
+android/*.apk
+android/*.zip
+windows/assets/imager-v*.exe
+*.apk
+*.exe
+*.aab
+
+# Credentials and user data never belong in source control
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+known_hosts

@@ -1,0 +1,53 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const {parseHTML}=require('linkedom');
+const source=fs.readFileSync(require('path').join(__dirname,'../app/src/main/assets/connect_translation.js'),'utf8');
+const epoch='123e4567-e89b-12d3-a456-426614174000';
+let passed=0;
+function setup(html,path='/devices',origin='https://connect.raspberrypi.com',iframe=false){
+  const dom=parseHTML('<html><head></head><body>'+html+'</body></html>');
+  let calls=[];
+  const w={dispatchEvent:()=>{},top:null};w.top=iframe?{}:w;
+  const location=new URL(path,origin);
+  Object.defineProperty(dom.document,'cookie',{get(){throw Error('Cookie access prohibited')}});
+  const sandbox={window:w,document:dom.document,location,URL,Date,Map,WeakMap,Set,MutationObserver:dom.MutationObserver,Event:dom.Event,console};
+  vm.createContext(sandbox);vm.runInContext(source.replace('__EPOCH__',JSON.stringify(epoch)),sandbox);
+  for(const n of dom.document.querySelectorAll('a,button')) n.addEventListener('click',()=>calls.push(n.textContent.trim()));
+  return {d:dom.document,w,api:w.__rmConnectTranslation,calls};
+}
+const card=(id='one',status='Online',disabled=false)=>`<article id="device_${id}"><span aria-label="${status}"></span><a href="/devices/${id}">${id}-pi</a><details><summary>Connect via</summary><a href="/devices/${id}/shell" ${disabled?'aria-disabled="true"':''}>Remote shell</a><a href="/devices/${id}/vnc">Screen sharing</a></details></article>`;
+function test(name,fn){fn();passed++;console.log('PASS '+name)}
+function json(x){return JSON.parse(JSON.stringify(x))}
+test('Read two real DOM device cards',()=>{const x=setup('<h1>Devices</h1>'+card()+card('two'));const s=x.api.snapshot();assert.equal(s.page,'devices');assert.equal(s.devices.length,2);assert.equal(s.devices[0].name,'one-pi')});
+test('Do not inject into auth origin',()=>assert.equal(setup('<form></form>','/','https://id.raspberrypi.com').api,undefined));
+test('Do not inject into subframes',()=>assert.equal(setup('','/devices',undefined,true).api,undefined));
+test('Reject origin suffix spoof',()=>assert.equal(setup('','/devices','https://connect.raspberrypi.com.evil.test').api,undefined));
+test('Online from provider status label',()=>assert.equal(setup(card()).api.snapshot().devices[0].status,'online'));
+test('Offline is not mistaken for online',()=>assert.equal(setup(card('off','Offline')).api.snapshot().devices[0].status,'offline'));
+test('Unknown status stays unknown',()=>assert.equal(setup(card('unknown','')).api.snapshot().devices[0].status,'unknown'));
+test('Status-dot classes recognized',()=>{const x=setup(card('x','').replace('<span aria-label="">','<span aria-label="" class="bg-green-500">'));assert.equal(x.api.snapshot().devices[0].status,'online')});
+test('Disabled services remain disabled',()=>assert.equal(setup(card('off','Online',true)).api.snapshot().devices[0].shell.enabled,false));
+test('Native click triggers original DOM action',()=>{const x=setup(card());const a=x.api.snapshot().devices[0].shell;assert.equal(x.api.dispatch(epoch,a.handle).ok,true);assert.deepEqual(x.calls,['Remote shell'])});
+test('Native click opens closed dropdown before action',()=>{const x=setup(card());x.api.dispatch(epoch,x.api.snapshot().devices[0].shell.handle);assert.equal(x.d.querySelector('details').open,true)});
+test('Epoch mismatch cannot trigger action',()=>{const x=setup(card());assert.equal(x.api.dispatch('old',x.api.snapshot().devices[0].shell.handle).ok,false);assert.equal(x.calls.length,0)});
+test('Unknown action handles fail closed',()=>assert.equal(setup(card()).api.dispatch(epoch,'a_999999').ok,false));
+test('Script-injection handles fail closed',()=>assert.equal(setup(card()).api.dispatch(epoch,"a_1');alert(1)").ok,false));
+test('Disabled after discovery is rechecked',()=>{const x=setup(card());const a=x.api.snapshot().devices[0].shell;x.d.querySelector('a[href$="shell"]').setAttribute('aria-disabled','true');assert.equal(x.api.dispatch(epoch,a.handle).ok,false)});
+test('Removed element cannot be clicked',()=>{const x=setup(card());const a=x.api.snapshot().devices[0].shell;x.d.querySelector('a[href$="shell"]').remove();assert.equal(x.api.dispatch(epoch,a.handle).ok,false)});
+test('URL changed to external origin is rejected',()=>{const x=setup(card());const a=x.api.snapshot().devices[0].shell;x.d.querySelector('a[href$="shell"]').setAttribute('href','https://evil.test/');assert.equal(x.api.dispatch(epoch,a.handle).ok,false)});
+test('Destructive URL relabelled as shell is rejected',()=>{const x=setup(card().replace('/one/shell','/one/delete'));assert.equal(x.api.snapshot().devices[0].shell.enabled,false)});
+test('Duplicate name links do not duplicate devices',()=>{const x=setup(card()+'<a href="/devices/one">one-pi</a>');assert.equal(x.api.snapshot().devices.length,1)});
+test('Unknown endpoints are not invented for missing services',()=>{const x=setup('<h1>Devices</h1><article><a href="/devices/one">one-pi</a></article>');assert.equal(x.api.snapshot().devices[0].shell,null)});
+test('Sign-in form is mapped without reading its CSRF',()=>{const x=setup('<form action="/auth/raspberry_pi" method="post"><input type="hidden" name="authenticity_token" value="NEVER_EXPORT"><button type="submit">Sign in with Raspberry Pi ID</button></form>','/sign-in');const s=x.api.snapshot();assert.equal(s.page,'signin');assert.equal(s.actions[0].kind,'signin');assert(!JSON.stringify(s).includes('NEVER_EXPORT'));assert(x.api.dispatch(epoch,s.actions[0].handle).ok)});
+test('Create-account form is not silently selected',()=>{const x=setup('<form action="/auth/raspberry_pi"><input name="prompt" value="create"><button>Create one for free</button></form>','/sign-in');assert.equal(x.api.snapshot().actions.length,0)});
+test('Zero devices is distinguishable from unrecognized page',()=>{assert.equal(setup('<h1>Devices</h1>').api.snapshot().page,'devices');assert.equal(setup('<h1>Unrecognized</h1>','/unknown').api.snapshot().page,'unsupported')});
+test('Map provider pre-connect button',()=>{const x=setup('<main><h1>Connect to Pi</h1><button>Connect</button></main>','/devices/one/connections/new');assert.equal(x.api.snapshot().actions[0].kind,'session')});
+test('Do not map unrelated buttons',()=>{const x=setup('<button>Delete device</button><button>Reboot</button>','/devices/one/connections/new');assert.equal(x.api.snapshot().actions.length,0)});
+test('Native failure notices preserve provider explanation',()=>{const x=setup('<div role="alert">Connection failed: Pi offline</div>','/sessions/one');assert(x.api.snapshot().notice.includes('Pi offline'))});
+test('No terminal output is included in snapshot',()=>{const x=setup('<header>LOGO</header><main><div class="xterm"><div class="xterm-screen">PRIVATE_TERMINAL_TEXT</div></div></main><footer>Need help?</footer>','/sessions/one');const s=x.api.snapshot();assert.equal(s.viewport,'terminal');assert(!JSON.stringify(s).includes('PRIVATE_TERMINAL_TEXT'));assert(x.d.querySelector('footer').classList.contains('rm-connect-hidden'))});
+test('Viewport still works with device breadcrumbs',()=>{const x=setup('<nav><a href="/devices/one">one-pi</a></nav><main><div class="xterm"><div class="xterm-screen"></div></div></main>','/devices/one/shell');assert.equal(x.api.snapshot().viewport,'terminal')});
+test('Viewport stylesheet applied without detaching terminal',()=>{const x=setup('<main><div class="xterm"><div class="xterm-screen"></div></div></main>','/sessions/one');const terminal=x.d.querySelector('.xterm'),parent=terminal.parentElement;x.api.snapshot();assert.equal(terminal.parentElement,parent);assert(terminal.classList.contains('rm-connect-focus'))});
+test('Viewport styles reversible when adapter stops',()=>{const x=setup('<header>Header</header><main><div class="xterm"><div class="xterm-screen"></div></div></main>','/sessions/one');x.api.snapshot();x.api.stop();assert(!x.d.querySelector('header').classList.contains('rm-connect-hidden'));assert.equal(x.w.__rmConnectTranslation,undefined)});
+test('No automatic navigation when snapshot runs',()=>{const x=setup(card());x.api.snapshot();x.api.snapshot();assert.deepEqual(x.calls,[])});
+test('Root-page device heading recognized',()=>assert.equal(setup('<h1>Devices</h1>','/').api.snapshot().page,'devices'));
+test('Device detail action is a real source element',()=>{const x=setup(card());const a=x.api.snapshot().devices[0].detail;assert.equal(x.api.dispatch(epoch,a.handle).ok,true);assert.deepEqual(x.calls,['one-pi'])});
+console.log(`TOTAL ${passed} passed, 0 failed`);

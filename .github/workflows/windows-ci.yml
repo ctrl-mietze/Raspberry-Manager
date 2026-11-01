@@ -1,0 +1,63 @@
+name: Windows Desktop CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "windows/**"
+      - ".github/workflows/windows-ci.yml"
+  pull_request:
+    paths:
+      - "windows/**"
+      - ".github/workflows/windows-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    name: Compile, test and package Windows
+    runs-on: windows-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: windows/package-lock.json
+
+      - name: Install pinned dependencies
+        working-directory: windows
+        run: npm ci
+
+      - name: Check TypeScript
+        working-directory: windows
+        run: npx tsc --noEmit
+
+      - name: Run unit and source contract tests
+        working-directory: windows
+        run: npm test
+
+      - name: Build production frontend
+        working-directory: windows
+        run: npm run build:web
+
+      - name: Package installer
+        working-directory: windows
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+        run: npm run build
+
+      - name: Store unsigned CI installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: RaspberryManager-Windows-x64-CI
+          path: windows/release/*Setup.exe
+          if-no-files-found: error
+          retention-days: 14

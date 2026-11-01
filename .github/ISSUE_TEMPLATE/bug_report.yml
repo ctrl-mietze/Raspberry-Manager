@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a reproducible problem in Android or Windows Raspberry Manager
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Affected platform
+      options: ["Android", "Windows", "Website", "Both Android and Windows"]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Build/version
+      placeholder: "10.3.0, Android 17 / Windows 11 ..."
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: State the behavior, what you expected, and its impact.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots (redacted)
+      description: Never paste SSH passwords, cookie values, OAuth tokens, private keys, serial numbers or identifying device logs.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Checklist
+      options:
+        - label: I removed credentials and personally identifying details from this report.
+          required: true
+        - label: I verified this is not only a planned/simulated Workbench behavior.
+          required: true

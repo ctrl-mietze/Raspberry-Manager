@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#0b0910"/>
+  <meta name="description" content="Raspberry Manager for Android and Windows. Build image plans, manage SSH devices, use Raspberry Pi Connect and launch Raspberry Pi Imager in a beautiful Berry workspace."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Raspberry Manager · Mega Manager X"/>
+  <meta property="og:description" content="Build · Flash · Connect · Manage. An independent companion for your Raspberry Pi workspace."/>
+  <meta property="og:image" content="https://ctrl-mietze.github.io/Raspberry-Manager/assets/windows-home.png"/>
+  <meta property="og:url" content="https://ctrl-mietze.github.io/Raspberry-Manager/"/>
+  <link rel="icon" type="image/png" href="assets/logo.png"/>
+  <link rel="stylesheet" href="style.css"/>
+  <title>Raspberry Manager · Android & Windows</title>
+</head>
+<body>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#home" class="brand" aria-label="Raspberry Manager Home">
+        <img src="assets/logo.png" width="47" height="47" alt="Raspberry Manager icon"/>
+        <span class="brand-name"><strong>Raspberry Manager</strong><small>Mega Manager X · VX</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#features" data-en="Features" data-de="Funktionen">Features</a>
+        <a href="#workbench" data-en="Workbench" data-de="Workbench">Workbench</a>
+        <a href="#gallery" data-en="Gallery" data-de="Galerie">Gallery</a>
+        <a href="#download" data-en="Downloads" data-de="Downloads">Downloads</a>
+        <a href="#faq" data-en="FAQ" data-de="FAQ">FAQ</a>
+      </nav>
+      <div class="nav-right">
+        <div class="language-toggle" aria-label="Choose language"><button class="active" id="english" type="button">EN</button><button id="german" type="button">DE</button></div>
+        <a class="nav-github" href="https://github.com/ctrl-mietze/Raspberry-Manager" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.58 22c.56.1.78-.25.78-.55v-2.02c-3.17.69-3.84-1.35-3.84-1.35-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.17 1.75 1.17 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.52-2.53-.29-5.19-1.26-5.19-5.58 0-1.23.44-2.23 1.17-3.02-.12-.29-.51-1.43.11-2.98 0 0 .96-.3 3.12 1.15a10.9 10.9 0 0 1 5.68 0C18.92 6.2 19.87 6.5 19.87 6.5c.63 1.55.24 2.69.12 2.98.73.79 1.17 1.79 1.17 3.02 0 4.33-2.67 5.29-5.21 5.58.41.35.78 1.03.78 2.08v3.08c0 .31.2.65.79.55A11.3 11.3 0 0 0 12 .7Z" fill="currentColor"/></svg><span>GitHub</span></a>
+        <a class="nav-download" href="#download" data-en="Get the app" data-de="App herunterladen">Get the app</a>
+        <button class="mobile-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero wrap" id="home">
+      <div class="hero-copy">
+        <div class="pill"><span class="pulse"></span><span data-en="ALL-IN-ONE RASPBERRY PI WORKSPACE" data-de="DEIN RASPBERRY-PI-WORKSPACE">ALL-IN-ONE RASPBERRY PI WORKSPACE</span></div>
+        <h1><span data-en="One workspace." data-de="Ein Workspace.">One workspace.</span><br/><em data-en="Every Raspberry." data-de="Jeder Raspberry.">Every Raspberry.</em></h1>
+        <p class="hero-subtitle" data-en="A complete companion for your Pi projects. Plan your image, connect to devices, manage storage and open official flashing tools — on Android and Windows, in the same recognizable Berry design."
+           data-de="Deine Zentrale für Raspberry-Projekte. Images planen, Geräte verbinden, Speicher verwalten und offizielle Flash-Tools starten – auf Android und Windows im gleichen Berry-Design.">A complete companion for your Pi projects. Plan your image, connect to devices, manage storage and open official flashing tools — on Android and Windows, in the same recognizable Berry design.</p>
+        <div class="hero-buttons">
+          <a class="cta primary" href="https://github.com/ctrl-mietze/Raspberry-Manager/releases/latest/download/RaspberryManager-Windows-v10.3.0-Setup.exe" aria-label="Download Raspberry Manager for Windows"><span class="windows-logo">⊞</span><span><strong data-en="Download for Windows" data-de="Für Windows herunterladen">Download for Windows</strong><small>Windows 10 / 11 · x64 installer</small></span><b>↗</b></a>
+          <a class="cta secondary" href="https://github.com/ctrl-mietze/Raspberry-Manager/releases/latest/download/RaspberryManager-Android-v10.3.0.apk" aria-label="Download Raspberry Manager for Android"><span class="android-logo">●</span><span><strong data-en="Download for Android" data-de="Für Android herunterladen">Download for Android</strong><small>Android 9+ · APK</small></span><b>↗</b></a>
+        </div>
+        <div class="hero-proof"><span>✓ <span data-en="Open source" data-de="Open Source">Open source</span></span><span>✓ <span data-en="Native device tools" data-de="Native Geräte-Tools">Native device tools</span></span><span>✓ <span data-en="No forced cloud account" data-de="Kein Pflicht-Cloudkonto">No forced cloud account</span></span></div>
+      </div>
+      <div class="hero-scene">
+        <div class="scene-glow"></div>
+        <div class="desktop-frame">
+          <div class="frame-titlebar"><span class="traffic"><i></i><i></i><i></i></span><span>Raspberry Manager · Windows</span><span class="frame-ctrl">─ □ ×</span></div>
+          <img src="assets/windows-home.png" alt="Actual Raspberry Manager Windows home screen" loading="eager"/>
+        </div>
+        <div class="phone-frame" aria-label="Illustrated Android application overview">
+          <div class="phone-speaker"></div>
+          <div class="phone-ui">
+            <div class="phone-header"><img src="assets/logo.png" alt="" width="27" height="27"/><span><strong>Raspberry Manager</strong><small>Mega Manager X · VX</small></span><b>♆</b></div>
+            <h3>Your Raspberry workspace</h3><p>Flash, access and manage your devices in one place.</p>
+            <div class="phone-tile"><b>▧</b><span><strong>Pi Magic Image Designer</strong><small>Build your OS stack</small></span></div>
+            <div class="phone-tile alt"><b>▣</b><span><strong>Raspberry devices</strong><small>SSH · Pi Connect</small></span></div>
+            <div class="phone-tile alt"><b>⌗</b><span><strong>Drives & storage</strong><small>USB / SD cards</small></span></div>
+            <div class="phone-nav">⌂ <span>▣</span> ▤ <span>⌗</span> ⚙</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="trust-strip">
+      <div class="wrap trust-grid">
+        <div><span>68</span><strong data-en="Workbench component types" data-de="Workbench-Blocktypen">Workbench component types</strong></div>
+        <div><span>2</span><strong data-en="Native platforms" data-de="Native Plattformen">Native platforms</strong></div>
+        <div><span>SSH</span><strong data-en="Real remote terminal" data-de="Echtes Remote-Terminal">Real remote terminal</strong></div>
+        <div><span>WebRTC</span><strong data-en="Official Pi Connect integration" data-de="Offizielle Pi-Connect-Anbindung">Official Pi Connect integration</strong></div>
+      </div>
+    </div>
+    <section class="section wrap" id="features">
+      <div class="section-intro"><div><span class="overline">DESIGNED FOR PI ENTHUSIASTS</span><h2 data-en="One familiar interface.<br/>Everything in its place." data-de="Eine vertraute Oberfläche.<br/>Alles an seinem Platz.">One familiar interface.<br/>Everything in its place.</h2></div><p data-en="From a quick SD-card job to a complex service stack, the right tools should be easy to find — and honest about what they actually execute."
+      data-de="Von der SD-Karte bis zum komplexen Service-Stack: Die richtigen Werkzeuge sollen schnell erreichbar sein – und klar zeigen, was sie tatsächlich ausführen.">From a quick SD-card job to a complex service stack, the right tools should be easy to find — and honest about what they actually execute.</p></div>
+      <div class="features">
+        <article class="feature"><div class="feature-icon">▧</div><h3 data-en="Pi Magic Image Designer" data-de="Pi Magic Image Designer">Pi Magic Image Designer</h3><p data-en="Stack blocks for OS, boot and storage planning with capacities, dependencies and validation." data-de="OS-, Boot- und Speicherblöcke mit Kapazitäten, Abhängigkeiten und Prüfungen kombinieren.">Stack blocks for OS, boot and storage planning with capacities, dependencies and validation.</p></article>
+        <article class="feature"><div class="feature-icon">⌗</div><h3 data-en="Advanced Visual Workbench" data-de="Grafischer Workbench">Advanced Visual Workbench</h3><p data-en="Pan, zoom, connect, edit, group, arrange and export up to 256 nodes in a visual graph." data-de="Bis zu 256 Blöcke verschieben, zoomen, verbinden, bearbeiten, gruppieren, anordnen und exportieren.">Pan, zoom, connect, edit, group, arrange and export up to 256 nodes in a visual graph.</p></article>
+        <article class="feature"><div class="feature-icon">▣</div><h3 data-en="SSH Device Manager" data-de="SSH-Geräteverwaltung">SSH Device Manager</h3><p data-en="Saved local profiles, encrypted SSH terminal and explicit new-host fingerprint verification." data-de="Lokale Profile, verschlüsseltes SSH-Terminal und explizite Prüfung neuer Host-Fingerprints.">Saved local profiles, encrypted SSH terminal and explicit new-host fingerprint verification.</p></article>
+        <article class="feature"><div class="feature-icon">☁</div><h3>Raspberry Pi Connect</h3><p data-en="The official Raspberry Pi account and WebRTC client, brought into the app with native controls where supported." data-de="Offizielles Raspberry-Pi-Konto und WebRTC-Client, soweit möglich in eine native App-Oberfläche integriert.">The official Raspberry Pi account and WebRTC client, brought into the app with native controls where supported.</p></article>
+        <article class="feature"><div class="feature-icon">▤</div><h3 data-en="Drives & Storage" data-de="Laufwerke & Speicher">Drives & Storage</h3><p data-en="Review storage devices before choosing to flash. Disk writing always requires a separate user confirmation." data-de="Speichergeräte vor dem Flashen prüfen. Schreibvorgänge benötigen immer eine gesonderte Bestätigung.">Review storage devices before choosing to flash. Disk writing always requires a separate user confirmation.</p></article>
+        <article class="feature"><div class="feature-icon">♆</div><h3>Raspberry Pi Imager</h3><p data-en="Open the native Imager on Android or the official Raspberry Pi Imager workflow on Windows." data-de="Den nativen Imager auf Android oder den offiziellen Imager-Ablauf unter Windows öffnen.">Open the native Imager on Android or the official Raspberry Pi Imager workflow on Windows.</p></article>
+      </div>
+    </section>
+    <section class="workbench-section" id="workbench">
+      <div class="wrap workbench-layout">
+        <div class="workbench-copy"><div class="mini-line"></div><span class="overline" data-en="VISUAL POWER, PRECISE CONTROL" data-de="VISUELL UND PRÄZISE">VISUAL POWER, PRECISE CONTROL</span><h2 data-en="Build the system.<br/><em>See every connection.</em>" data-de="Baue dein System.<br/><em>Sieh jede Verbindung.</em>">Build the system.<br/><em>See every connection.</em></h2><p data-en="Pi Magic Workbench turns operating systems, dependencies, runtimes and services into a readable map. Move blocks freely, choose what depends on what and keep your plan portable with JSON exports."
+        data-de="Pi Magic Workbench stellt Betriebssysteme, Abhängigkeiten, Laufzeitumgebungen und Dienste als übersichtlichen Graph dar. Blöcke frei bewegen, Beziehungen festlegen und den Plan als JSON mitnehmen.">Pi Magic Workbench turns operating systems, dependencies, runtimes and services into a readable map. Move blocks freely, choose what depends on what and keep your plan portable with JSON exports.</p>
+          <ul><li data-en="68 component types across nine categories" data-de="68 Blocktypen in neun Kategorien">68 component types across nine categories</li>
+              <li data-en="Validation, layouts, conditions and templates" data-de="Validierung, Layouts, Bedingungen und Vorlagen">Validation, layouts, conditions and templates</li>
+              <li data-en="Compatible Workbench JSON schema between platforms" data-de="Kompatibles Workbench-JSON-Schema für beide Plattformen">Compatible Workbench JSON schema between platforms</li>
+              <li data-en="EMULATELOAD dry-run — clearly separate from real boot" data-de="EMULATELOAD-Dry-Run – klar vom echten Boot getrennt">EMULATELOAD dry-run — clearly separate from real boot</li></ul>
+          <a class="text-cta" href="https://github.com/ctrl-mietze/Raspberry-Manager/tree/main/windows" data-en="Explore the Windows source →" data-de="Windows-Source ansehen →">Explore the Windows source →</a>
+        </div>
+        <div class="workbench-shot"><div class="screenshot-header"><i></i> PI MAGIC WORKBENCH <span>v10.3.0</span></div><img src="assets/windows-workbench.png" alt="Actual Raspberry Manager visual Workbench running on Windows" loading="lazy"/></div>
+      </div>
+    </section>
+    <section class="section wrap" id="gallery">
+      <div class="center-heading"><span class="overline">THE REAL INTERFACE</span><h2 data-en="Designed to be used.<br/><em>Not just looked at.</em>" data-de="Zum Benutzen gemacht.<br/><em>Nicht nur zum Anschauen.</em>">Designed to be used.<br/><em>Not just looked at.</em></h2><p data-en="Captured directly from the running Windows application, without replacing functional screens with concept art." data-de="Direkt aus der laufenden Windows-App aufgenommen, nicht durch erfundene Funktions-Screens ersetzt.">Captured directly from the running Windows application, without replacing functional screens with concept art.</p></div>
+      <div class="gallery-grid">
+        <figure class="gallery-large"><button class="gallery-image" data-image="assets/windows-home.png" data-title="Home dashboard"><img src="assets/windows-home.png" loading="lazy" alt="Raspberry Manager Windows home dashboard"/><span>View full screen ↗</span></button><figcaption><b>01 · Workspace Home</b><p data-en="Quick access to the Pi Magic designer, SSH devices, disks and flashing." data-de="Schnellzugriff auf Pi Magic, SSH-Geräte, Laufwerke und Flashing.">Quick access to the Pi Magic designer, SSH devices, disks and flashing.</p></figcaption></figure>
+        <figure><button class="gallery-image" data-image="assets/windows-builder.png" data-title="Stack Builder"><img src="assets/windows-builder.png" loading="lazy" alt="Windows Pi Magic Image Designer"/><span>View full screen ↗</span></button><figcaption><b>02 · Image Designer</b><p data-en="Card capacity, boot stack, allocation and EmulateLoad diagnostic." data-de="Kartengröße, Boot-Stack, Reservierungen und EmulateLoad-Diagnose.">Card capacity, boot stack, allocation and EmulateLoad diagnostic.</p></figcaption></figure>
+        <figure><button class="gallery-image" data-image="assets/windows-workbench.png" data-title="Visual Workbench"><img src="assets/windows-workbench.png" loading="lazy" alt="Pi Magic visual Workbench with connected components"/><span>View full screen ↗</span></button><figcaption><b>03 · Visual Workbench</b><p data-en="Edit 68 component types with connection-aware layouts and inspector." data-de="68 Blocktypen mit Verbindungen, Anordnung und Inspector bearbeiten.">Edit 68 component types with connection-aware layouts and inspector.</p></figcaption></figure>
+      </div>
+      <div class="android-reference-gallery">
+        <div class="android-reference-heading"><span class="overline">ANDROID DESIGN REFERENCES · v10.2 BASELINE</span>
+          <h3 data-en="The same Berry DNA on Android." data-de="Das gleiche Berry-Design auf Android.">The same Berry DNA on Android.</h3>
+          <p data-en="These genuine Android screenshots show the preceding v10.2 interface. Version 10.3 updates these areas; the pictures are historical design references."
+             data-de="Diese echten Android-Screenshots zeigen die vorherige v10.2-Oberfläche. Version 10.3 überarbeitet diese Bereiche; die Bilder sind historische Designreferenzen.">These genuine Android screenshots show the preceding v10.2 interface. Version 10.3 updates these areas; the pictures are historical design references.</p>
+        </div>
+        <div class="android-reference-row">
+          <figure><button class="gallery-image phone-image" data-image="assets/android-builder-reference.jpg" data-title="Android · Image Designer (v10.2 reference)"><img src="assets/android-builder-reference.jpg" alt="Original Android Image Designer screenshot, predecessor build" loading="lazy"/><span>Enlarge ↗</span></button><figcaption>Pi Magic Image Designer</figcaption></figure>
+          <figure><button class="gallery-image phone-image" data-image="assets/android-workbench-reference.jpg" data-title="Android · Workbench (v10.2 reference)"><img src="assets/android-workbench-reference.jpg" alt="Original Android Workbench screenshot, predecessor build" loading="lazy"/><span>Enlarge ↗</span></button><figcaption>Pi Magic Workbench</figcaption></figure>
+          <figure><button class="gallery-image phone-image" data-image="assets/android-devices-reference.jpg" data-title="Android · Devices (v10.2 reference)"><img src="assets/android-devices-reference.jpg" alt="Original Android Devices screenshot, predecessor build" loading="lazy"/><span>Enlarge ↗</span></button><figcaption>Raspberry Devices</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section class="download-section" id="download">
+      <div class="wrap"><div class="center-heading"><span class="overline">LATEST RELEASE · 10.3.0</span><h2 data-en="Your workspace is ready." data-de="Dein Workspace ist bereit.">Your workspace is ready.</h2><p data-en="Two platform-native builds. One Raspberry Manager identity." data-de="Zwei native Builds. Ein gemeinsames Raspberry-Manager-Design.">Two platform-native builds. One Raspberry Manager identity.</p></div>
+        <div class="download-grid">
+          <div class="download-card featured"><div class="platform-icon windows">⊞</div><span class="platform-chip">WINDOWS</span><h3>Raspberry Manager <strong>Windows</strong></h3><p data-en="Desktop installer with the visual Workbench, SSH terminal, native storage overview and embedded Connect."
+              data-de="Desktop-Installer mit grafischem Workbench, SSH-Terminal, Laufwerksübersicht und integriertem Connect.">Desktop installer with the visual Workbench, SSH terminal, native storage overview and embedded Connect.</p><ul><li>Windows 10 / 11 · x64</li><li>Setup installer (.exe)</li><li data-en="Includes official Imager setup (not installed silently)" data-de="Enthält offiziellen Imager-Installer (keine stille Installation)">Includes official Imager setup (not installed silently)</li></ul>
+            <a class="cta primary" href="https://github.com/ctrl-mietze/Raspberry-Manager/releases/latest/download/RaspberryManager-Windows-v10.3.0-Setup.exe"><span data-en="Download Windows installer" data-de="Windows-Installer herunterladen">Download Windows installer</span><b>↓</b></a></div>
+          <div class="download-card"><div class="platform-icon android">●</div><span class="platform-chip">ANDROID</span><h3>Raspberry Manager <strong>Android</strong></h3><p data-en="Native Android manager with the image builder, Workbench, SSH profiles, Raspberry Connect and USB/SD imaging."
+              data-de="Native Android-App mit Image Builder, Workbench, SSH-Profilen, Raspberry Connect und USB/SD-Imaging.">Native Android manager with the image builder, Workbench, SSH profiles, Raspberry Connect and USB/SD imaging.</p><ul><li>Android 9+</li><li>APK · v10.3.0</li><li data-en="Manual APK installation / app update" data-de="Manuelle APK-Installation / App-Update">Manual APK installation / app update</li></ul>
+            <a class="cta secondary" href="https://github.com/ctrl-mietze/Raspberry-Manager/releases/latest/download/RaspberryManager-Android-v10.3.0.apk"><span data-en="Download Android APK" data-de="Android-APK herunterladen">Download Android APK</span><b>↓</b></a></div>
+        </div>
+        <div class="release-note">ⓘ <span data-en="Unsigned personal Windows builds may trigger SmartScreen. Check the published SHA-256 files in the GitHub release before installing. Neither installer flashes a drive automatically."
+        data-de="Unsignierte Windows-Builds können SmartScreen auslösen. Prüfe die SHA-256-Dateien im GitHub-Release. Kein Installer flasht automatisch ein Laufwerk.">Unsigned personal Windows builds may trigger SmartScreen. Check the published SHA-256 files in the GitHub release before installing. Neither installer flashes a drive automatically.</span></div>
+      </div>
+    </section>
+    <section class="section wrap" id="faq">
+      <div class="section-intro"><div><span class="overline">GOOD TO KNOW</span><h2 data-en="Questions, answered." data-de="Häufige Fragen.">Questions, answered.</h2></div><p data-en="Clear boundaries matter as much as features." data-de="Klare technische Grenzen sind genauso wichtig wie Funktionen.">Clear boundaries matter as much as features.</p></div>
+      <div class="faq-list">
+        <details><summary data-en="Can I actually flash a USB drive or microSD card?" data-de="Kann ich USB-Laufwerke oder SD-Karten wirklich flashen?">Can I actually flash a USB drive or microSD card?</summary><p data-en="Yes, through platform-specific imaging. Windows launches the official Raspberry Pi Imager, which confirms the disk before erasure. Android uses its own native imaging workflow. The visual stack designer is a planning tool, not a bootable image generator."
+          data-de="Ja, über plattformspezifische Imaging-Funktionen. Windows startet den offiziellen Raspberry Pi Imager, der den Datenträger vor dem Löschen bestätigt. Android nutzt einen eigenen nativen Imaging-Ablauf. Der grafische Stack Builder erzeugt selbst kein bootfähiges Image.">Yes, through platform-specific imaging. Windows launches the official Raspberry Pi Imager, which confirms the disk before erasure. Android uses its own native imaging workflow. The visual stack designer is a planning tool, not a bootable image generator.</p></details>
+        <details><summary data-en="Does Raspberry Pi Connect run inside the app?" data-de="Läuft Raspberry Pi Connect innerhalb der App?">Does Raspberry Pi Connect run inside the app?</summary><p data-en="Yes. The official provider pages run in a dedicated embedded browser profile. Supported device information is presented through app controls; secure login and remote view remain part of Raspberry Pi Connect. No browser cookie extraction or unofficial token handling."
+          data-de="Ja. Die offiziellen Seiten laufen in einem getrennten eingebetteten Browserprofil. Geräteinformationen erscheinen soweit unterstützt in nativen Bedienelementen; Anmeldung und Remoteansicht bleiben beim Connect-Dienst. Es werden keine fremden Browser-Cookies oder Tokens abgegriffen.">Yes. The official provider pages run in a dedicated embedded browser profile. Supported device information is presented through app controls; secure login and remote view remain part of Raspberry Pi Connect. No browser cookie extraction or unofficial token handling.</p></details>
+        <details><summary data-en="Are Android and Windows exactly identical?" data-de="Sind Android und Windows technisch identisch?">Are Android and Windows exactly identical?</summary><p data-en="They share the same design and major workspace features, including the compatible Workbench JSON model. Android and Windows use different platform-specific disk, installer and connection integrations. Some exports and hardware flows differ."
+          data-de="Sie teilen Design und zentrale Workspace-Funktionen sowie das kompatible Workbench-JSON-Modell. Disk-, Installer- und Verbindungsintegration sind plattformspezifisch; einzelne Exporte und Hardwareabläufe unterscheiden sich.">They share the same design and major workspace features, including the compatible Workbench JSON model. Android and Windows use different platform-specific disk, installer and connection integrations. Some exports and hardware flows differ.</p></details>
+        <details><summary data-en="Does EmulateLoad boot a real Raspberry Pi?" data-de="Startet EmulateLoad einen echten Raspberry Pi?">Does EmulateLoad boot a real Raspberry Pi?</summary><p data-en="No. EmulateLoad is a dependency/validation dry-run. It does not execute Raspberry Pi firmware, install an operating system or guarantee hardware compatibility."
+          data-de="Nein. EmulateLoad ist eine Simulation von Abhängigkeiten und Prüfungen. Es führt keine Pi-Firmware aus, installiert kein Betriebssystem und garantiert keine Hardwarekompatibilität.">No. EmulateLoad is a dependency/validation dry-run. It does not execute Raspberry Pi firmware, install an operating system or guarantee hardware compatibility.</p></details>
+      </div>
+    </section>
+    <section class="opensource wrap"><div class="opensource-copy"><div class="platform-icon github">⌘</div><div><span class="overline">BUILT IN THE OPEN</span><h2>Raspberry Manager on GitHub</h2><p data-en="Browse Android and Windows source, find build instructions, inspect licenses or report a bug. This is an independent project, not an official Raspberry Pi product."
+      data-de="Android- und Windows-Source, Build-Anleitungen und Lizenzen ansehen oder Fehler melden. Dies ist ein unabhängiges Projekt, kein offizielles Produkt von Raspberry Pi.">Browse Android and Windows source, find build instructions, inspect licenses or report a bug. This is an independent project, not an official Raspberry Pi product.</p></div></div>
+      <a class="cta secondary" href="https://github.com/ctrl-mietze/Raspberry-Manager" target="_blank" rel="noopener" data-en="View the repository ↗" data-de="Repository ansehen ↗">View the repository ↗</a></section>
+  </main>
+  <footer><div class="wrap footer-inner"><div class="footer-brand"><img src="assets/logo.png" width="34" height="34" alt=""/><span><strong>Raspberry Manager</strong><small>Build · Flash · Connect · Manage</small></span></div><p>© 2026 ctrl-mietze · Independent Raspberry Pi companion. Raspberry Pi trademarks belong to Raspberry Pi Ltd.</p><a href="#home" data-en="Back to top ↑" data-de="Nach oben ↑">Back to top ↑</a></div></footer>
+  <dialog id="galleryDialog" class="lightbox"><button id="closeGallery" aria-label="Close image">×</button><img id="largeImage" alt="Expanded Raspberry Manager screenshot"/><div id="imageCaption"></div></dialog>
+  <script src="app.js" defer></script>
+</body>
+</html>

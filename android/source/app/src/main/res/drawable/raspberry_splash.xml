@@ -1,0 +1,1 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" android:drawable="@drawable/ic_raspberry_mark"><target android:name="berry" android:animation="@animator/berry_reveal" /></animated-vector>

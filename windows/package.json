@@ -1,0 +1,79 @@
+{
+  "name": "raspberry-manager-windows",
+  "version": "10.3.0",
+  "description": "Raspberry Manager Windows – Image Designer, Workbench, SSH, Raspberry Pi Connect & removable drive tools",
+  "author": "ctrl-mietze",
+  "license": "Apache-2.0",
+  "main": "desktop/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && cross-env RM_DEV_SERVER=http://127.0.0.1:5173 electron .\"",
+    "build:web": "vite build",
+    "build": "vite build && electron-builder --win nsis",
+    "build:portable": "vite build && electron-builder --win portable",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.12.0",
+    "@xterm/xterm": "^6.0.0",
+    "@xterm/addon-fit": "^0.11.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "ssh2": "^1.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/ssh2": "^1.15.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.0.0",
+    "cross-env": "^7.0.0",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.5",
+    "wait-on": "^8.0.0"
+  },
+  "build": {
+    "appId": "dev.mietze.raspberrymanager.windows",
+    "productName": "Raspberry Manager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "desktop/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/ssh2/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/app.ico",
+      "artifactName": "RaspberryManager-Windows-v${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Raspberry Manager",
+      "deleteAppDataOnUninstall": false
+    },
+    "publish": null
+  }
+}

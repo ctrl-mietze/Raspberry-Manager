@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest a focused feature or platform improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Target platform
+      options: ["Android", "Windows", "Both", "Website / documentation"]
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem should this solve?
+      description: Describe the workflow and why it is valuable.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed behavior
+      description: Specify how the user would interact with it and what result can actually be verified.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or references
+    validations:
+      required: false
