@@ -18,6 +18,8 @@ cd android/source
 ./gradlew :app:assembleDebug :app:testDebugUnitTest
 ```
 
+On **Termux**, use `bash scripts/build-current-on-termux.sh` to select native AAPT2 automatically. Standard Linux/Windows builds use Maven-provided AAPT2.
+
 The APK is generated at `app/build/outputs/apk/debug/app-debug.apk`.
 
 The original public release APK is available through **[GitHub Releases](https://github.com/ctrl-mietze/Raspberry-Manager/releases/latest)**. Keep in mind that the local debug signing key may not match the previously installed application. Preserve app data before changing installed versions.

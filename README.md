@@ -26,6 +26,7 @@
     <img alt="Windows" src="https://img.shields.io/badge/Windows-10%20%2F%2011-7752a6?style=for-the-badge&logo=windows11&logoColor=white">
     <a href="LICENSE"><img alt="License Apache-2.0" src="https://img.shields.io/badge/License-Apache%202.0-b74170?style=for-the-badge"></a>
   </p>
+  <p><a href="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/android-ci.yml"><img alt="Android CI" src="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/android-ci.yml/badge.svg?branch=main"></a> &nbsp; <a href="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/windows-ci.yml"><img alt="Windows CI" src="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/windows-ci.yml/badge.svg?branch=main"></a></p>
 </div>
 
 ---
@@ -350,6 +351,8 @@ cd Raspberry-Manager/android/source
 
 ./gradlew :app:assembleDebug :app:testDebugUnitTest
 \`\`\`
+
+On **Termux on Android**, use `bash scripts/build-current-on-termux.sh` instead. This selects Termux-native AAPT2 automatically without hardcoding its path into shared Gradle settings.
 
 On Windows replace \`./gradlew\` with \`gradlew.bat\`. The default output is \`app/build/outputs/apk/debug/app-debug.apk\`. Builds use the **local debug signing key**, which may not match an APK you previously installed. Do not uninstall an existing installation merely to test a different signature unless you have backed up its app data.
 

@@ -16,6 +16,8 @@ Die Raspberry-Pi-Zentrale für **Android und Windows** – mit dem unverwechselb
 <img alt="Windows 10/11" src="https://img.shields.io/badge/Windows-10%20%2F%2011-7752a6?style=for-the-badge&logo=windows11&logoColor=white">
 <img alt="Apache License 2.0" src="https://img.shields.io/badge/License-Apache%202.0-b74170?style=for-the-badge">
 
+<p><a href="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/android-ci.yml"><img alt="Android CI" src="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/android-ci.yml/badge.svg?branch=main"></a> &nbsp; <a href="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/windows-ci.yml"><img alt="Windows CI" src="https://github.com/ctrl-mietze/Raspberry-Manager/actions/workflows/windows-ci.yml/badge.svg?branch=main"></a></p>
+
 <img src="docs/assets/windows-home.png" width="100%" alt="Echter Screenshot der Raspberry Manager Windows-Anwendung">
 
 <sub>Raspberry Manager v10.3.0 · Echter Screenshot der Windows-Anwendung</sub>
@@ -219,6 +221,8 @@ cd Raspberry-Manager/android/source
 
 ./gradlew :app:assembleDebug :app:testDebugUnitTest
 \`\`\`
+
+Auf **Android/Termux** verwende `bash scripts/build-current-on-termux.sh`. Das Skript wählt die native ARM64-Version von AAPT2 automatisch aus, ohne Termux-Pfade fest in die gemeinsam genutzten Gradle-Einstellungen zu schreiben.
 
 Ausgabe: \`app/build/outputs/apk/debug/app-debug.apk\`. Lokale Debug-Signaturen können sich von der bereits installierten APK unterscheiden.
 

@@ -35,17 +35,16 @@ fi
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 printf 'sdk.dir=%s\n' "$ANDROID_HOME" > local.properties
 
-# Termux arm64 Android build tools use the native aapt2 binary.
+# Apply native Termux AAPT2 only to this Gradle invocation.
+AAPT2_ARGS=()
 if command -v aapt2 >/dev/null 2>&1; then
-  if ! grep -q '^android.aapt2FromMavenOverride=' gradle.properties; then
-    printf '\nandroid.aapt2FromMavenOverride=%s\n' "$(command -v aapt2)" >> gradle.properties
-  fi
+  AAPT2_ARGS+=("-Pandroid.aapt2FromMavenOverride=$(command -v aapt2)")
 fi
 
 JAVA_VERSION="$(java -version 2>&1 | head -n 1)"
 echo "Java: $JAVA_VERSION"
 echo "Android SDK: $ANDROID_HOME"
-./gradlew --no-daemon --stacktrace :app:assembleDebug
+./gradlew --no-daemon --stacktrace "${AAPT2_ARGS[@]}" :app:assembleDebug
 APK="app/build/outputs/apk/debug/app-debug.apk"
 if [ ! -s "$APK" ]; then echo '[!] No built APK after Gradle completed.'; exit 3; fi
 OUT="$LOGROOT/RaspberryManager-v0.1.0-debug.apk"
